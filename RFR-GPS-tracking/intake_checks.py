@@ -8,6 +8,8 @@
 # Porpuse: Processes raw data of GPS tracking to produce completness
 # checks
 
+# WARNING: This depends on _master.py to run!
+
 #------------------------------------------------------------------------------#
 
 EXPORT = True
@@ -24,11 +26,6 @@ file_name = 'positions_' + dates + '.csv'
 
 #------------------------------------------------------------------------------#
 # Load data
-
-RFR_DATA = "C:/Users/wb519128/Dropbox/Work/WB/Rwanda Roads Data/"
-BCARS = RFR_DATA + "Primary data/BCars/"
-BCARS_RAW = BCARS + "Raw/"
-BCARS_HFC = BCARS + "HFCs/"
 
 #dbutils.fs.ls('mnt/SpeedGovernorsTrackingData')
 #braw = spark.read.csv('dbfs:/mnt/SpeedGovernorsTrackingData/devices_2019_02.csv')

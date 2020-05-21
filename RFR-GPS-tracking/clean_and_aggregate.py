@@ -7,12 +7,7 @@
 
 # Porpuse: 
 
-# To do
-
-# remove first row of each vehicle (null loc order)
-# Select correct columns
-# Aggregate by road to create road level data
-# Check what percentage of the data doesn't match a road
+# WARNING: This depends on _master.py to run!
 
 #------------------------------------------------------------------------------#
 #### Settings 
@@ -38,9 +33,9 @@ import datetime as dt
 import pandas as pd
 
 # Settings
+dates = '2020_MARCH_01_13'
 year = 2019
 month = 9
-# days = 
 
 
 # Set filepath conditional on Data Bricks switch
@@ -48,9 +43,8 @@ if DATA_BRICKS:
     PATH = 'dbfs:/mnt/SpeedGovernorsTrackingData/'
 else:
     # Root local file paths
-    temp_path = 'C:/Users/wb519128/Desktop/bcars-temp/'
-    ROADS_path = 'C:/Users/wb519128/Dropbox/Work/WB/Rwanda Roads Data/GIS/Rasterized-roads/'
-    PATH = temp_path
+    ROADS_path = BCARS_roads
+    PATH = BCARS_RAW
 
 
 #------------------------------------------------------------------------------#
@@ -59,10 +53,10 @@ else:
 date_range_str =  str(year)  + '_' + str('{:02d}'.format(month))
 
 # Positions data
-file_name = 'positions_' + date_range_str + '.csv'
+file_name = 'positions_' + dates + '.csv'
 
 # Contains vehicle type
-devices_file_name = 'devices_' + date_range_str + '.csv'
+devices_file_name = 'devices_' + str(year) + '.csv'
 
 #------------------------------------------------------------------------------#
 # Import data
