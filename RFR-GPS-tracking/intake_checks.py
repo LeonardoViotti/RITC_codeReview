@@ -1,6 +1,6 @@
 #------------------------------------------------------------------------------#
 
-#			Rwanda Feeder Roads  
+#			Rwanda Feeder Roads
 #           GPS tracking raw data checks
 
 #------------------------------------------------------------------------------#
@@ -18,10 +18,10 @@ EXPORT = True
 from pyspark.sql.functions import year, hour, month, to_date
 from pyspark.sql.functions import col, countDistinct, count, lit
 
-import os
+from _master import *
 
 # Settings
-dates = '2020_MARCH_01_13'
+dates = '2019_October'
 file_name = 'positions_' + dates + '.csv'
 
 #------------------------------------------------------------------------------#
@@ -42,7 +42,7 @@ braw = spark\
 #------------------------------------------------------------------------------#
 # Checks
 
-# braw.select('devicetime').show(5) 
+# braw.select('devicetime').show(5)
 
 # Create time vars
 braw = braw.withColumn('hour', hour(col('devicetime')))
@@ -56,7 +56,7 @@ agg_braw = braw\
          count(lit(1)).alias("Num Of Records"))\
     .orderBy('date')
 
-# agg_braw = 
+# agg_braw =
 agg_braw = agg_braw\
     .withColumnRenamed("count(DISTINCT hour)", "n hours")\
     .withColumnRenamed("count(DISTINCT deviceid)", "n devices")
