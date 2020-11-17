@@ -22,7 +22,7 @@ options(shiny.sanitize.errors = F)
 
 # Set app path
 GoR_APP <- file.path("C:/Users/wb519128/GitHub/Rwanda-Roads/Analysis/RFR/Shiny Dashboard - MINAGRI")
-# setwd(GoR_APP)
+setwd(GoR_APP)
 
 
 #------------------------------------------------------------------------------#
