@@ -1,0 +1,48 @@
+---
+title: "Rural Markets Dashboard"
+output: html_document
+---
+<style type="text/css">
+.main-container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Bottom right text */
+.text-block {
+  position: absolute;
+  background-color: gray;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+</style>
+
+
+<br>
+<div class="text-block">
+WARNING: 
+<br>
+In response to the COVID19 epidemic, data collection was stopped in March 2020 and re-started in April 2020 replacing market visits with phone based interviews. Please, expect the small data gaps during this period.  
+</div>
+
+<br><br><br><br>
+
+## Introduction
+This dashboard presents monthly statistics for the price and availability of 64 products in rural markets in 21 Districts across Rwanda. Products include agricultural produce, common household items and other products commonly available across the country.  
+
+The data is collected as part of the Rural Feder Roads Development Project impact evaluation for analyzing potential effects of road rehabilitation and increased connectivity in commodities prices in rural areas. The sample is composed of markets with different sizes and operation days, selected for being in the proximity of a given feeder road. A typical market is located at the intersection of a feeder road and a national or district road. Despite covering a relatively large number of markets in rural areas of Rwanda, the survey is __NOT meant to be representative of entire geographic aggregations__.
+
+## Methodology notes
+
+ * Markets are meant to be visited once every month, however due to field logistics the visits take place within a five-week window. Therefore, the number of markets visited every month may vary.
+ * For each product, two traders are interviewed per visit. 
+ * Enumerators have scales and weight products being sold by non-standardized units. The prices are then converted for comparability.
+ * Each product has a preferred kind that is prioritized to be surveyed. In case that specific type is not available at the time of survey, other types within a specific list are surveyed. A description of the preferred types is provided at the Product description tab.
+ * Availability of products is measured as the presence or not of any type of each product at the market level at the time the survey took place.
+ * This dashboard includes observations of the 109 markets that have been consistently visited since November 2016. The survey currently covers 130, but some are not included here so a constant sample is maintained, avoiding potential biases.
+
+For more information, feedback and suggestions, please, contact lviotti@worldbank.org
+
+
