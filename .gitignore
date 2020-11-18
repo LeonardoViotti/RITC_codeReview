@@ -57,6 +57,10 @@ _config.yml
 # Markdown
 !/**/*.md
 
+# Stata
+!/**/*.do
+!/**/*.ado
+
 # Keep dockerfiles
 !/**/Dockerfile
 !/**/*.yml
