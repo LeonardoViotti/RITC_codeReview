@@ -17,25 +17,23 @@ set varabbrev off
 global year = 2018 
 global national_average = 64.8 
 global groupnames = 0 
-global workspace = 1 										// Please change this to "2" after setting your directory path in line 27 
 
-
-   if $workspace == 1 { 
-       global supermun18 "C:/Users/850/Dropbox/Peer_code_review_2020/Supermun" 
-	   cd "$supermun18" 
+// Sekou
+if "`c(username)'" == "850"{
+	global supermun18 "C:/Users/850/Dropbox/Peer_code_review_2020/Supermun" 
    } 
 
-   if $workspace == 2 { 
-       global supermun18 " " 								// Please add your directory path 
-	   cd "$supermun18" 
-   } 
+// Leonardo
+if "`c(username)'" == "wb519128" | "`c(username)'" == "WB519128"{
+	global supermun18 "C:\Users\wb519128\GitHub\code-review\BFA-SM"
+} 
 
 
 * define subfolders 
-global raw  	"raw" 
-global interm  	"intermediary" 
-global final 	"final" 
-global dofile  	"dofile" 
+global raw  	"${supermun18}/raw" 
+global interm  	"${supermun18}/intermediary" 
+global final 	"${supermun18}/final" 
+global dofile  	"${supermun18}/dofile" 
 
 * create subfolders if they don't already exist 
 foreach dir in $interm $final { 
@@ -52,8 +50,8 @@ foreach dir in $interm $final {
    =================================================== */ 
 
 do "${dofile}/01_clean_0.do" 
-do "${dofile}/01_clean_1.do" 
-
-do "${dofile}/02_calculate_scores_ic.do" 
-do "${dofile}/02_calculate_scores_sd.do" 
+// do "${dofile}/01_clean_1.do" 
+//
+// do "${dofile}/02_calculate_scores_ic.do" 
+// do "${dofile}/02_calculate_scores_sd.do" 
 
