@@ -192,17 +192,17 @@ if ${groupnames} {
 	g food_enough 			= sd_a_04food_enough >= 9 
 } 
 else { 
-	replace functional_latrines = (functional_latrine / number_classes) >= 1 
+	replace functional_latrines_check = (functional_latrine / number_classes) >= 1 
 	g latrines 					= (number_students / functional_latrine) <= 40 
 	g functional_water 			= water_source_functional >= 9 
-	g supplies_received 		= date(year_month_received_schoo, "MDY", 2100) - /// 
-		date("10/01/${year}", "MDY") + 7 * (week_received_school_supp - 1) 
+	g supplies_received 		= date(year_month_received_school_suppl, "MDY", 2100) - /// 
+		date("10/01/${year}", "MDY") + 7 * (week_received_school_supplies - 1) 
 	g food_enough 				= food_supplies_enough >= 9 
 } 
 
 replace supplies_received 	= 0 if supplies_received < 0 
 replace supplies_received 	= 364 if mi(supplies_received) | supplies_received >= 365 | supplies_received <= -200
-replace functional_latrine 	= functional_latrines 
+replace functional_latrine 	= functional_latrines_check // DOUBLE CHECK functional_latrines_check is what ends up here if ${groupnames} is 0
 replace food_enough 		= 0 if mi(food_supplies_enough) 
 
 
