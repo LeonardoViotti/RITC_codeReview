@@ -9,6 +9,21 @@ version 13
 set more off
 set varabbrev off
 
+/* =================================================== 
+   ================ section swtiches ================= 
+   =================================================== */ 
+
+// Add brief description of what 01_clean_0.do does
+global clean_0 = 1
+
+// Add brief description of what 01_clean_1.do does
+global clean_1 = 1
+
+// Add brief description of what 02_calculate_scores_ic.do does
+global calculate_scores_ic = 1
+
+// Add brief description of what 02_calculate_scores_sd.do does
+global calculate_scores_sd = 1
 
 /* =================================================== 
    ================== set globals ==================== 
@@ -49,9 +64,17 @@ foreach dir in $interm $final {
    ================== run do-files =================== 
    =================================================== */ 
 
-do "${dofile}/01_clean_0.do" 
-// do "${dofile}/01_clean_1.do" 
-//
-// do "${dofile}/02_calculate_scores_ic.do" 
-// do "${dofile}/02_calculate_scores_sd.do" 
+if $clean_0{
+	do "${dofile}/01_clean_0.do" 
+}
+if $clean_1{
+	do "${dofile}/01_clean_1.do" 
+}
+if $calculate_scores_ic{
+	do "${dofile}/02_calculate_scores_ic.do" 
+}
+if $calculate_scores_sd{
+	do "${dofile}/02_calculate_scores_sd.do" 
+}
+
 
