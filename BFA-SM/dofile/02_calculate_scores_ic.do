@@ -160,7 +160,7 @@ replace score_personnel = score_personnel + 2 if agent_etat_civil == 1
 replace score_personnel = score_personnel + 2 if comptable == 1
 replace score_personnel = score_personnel + 1 if regisseur_recettes == 1
 replace score_personnel = score_personnel + 1 if agent_materiel_transfere == 1
-replace score_personnel = score_personnel + 1 if agent_services_statistiqu == 1
+replace score_personnel = score_personnel + 1 if agent_services_statistiques == 1
 replace score_personnel = score_personnel + 1 if agent_service_techniques == 1
 replace score_personnel = score_personnel + 1 if agent_affaires_domaniales == 1
 
