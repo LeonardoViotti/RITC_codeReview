@@ -711,7 +711,7 @@ foreach commune in THION MANI COALLA {
 	replace target_vaccination_vpo3_2018 		= 2541 							if commune == "PAMA" 
 	replace target_vaccination_vpo3_2018_che	= target_vaccination_vpo3_2018  if commune == "PAMA" 
 	replace target_vaccination_rr1_2018 		= 2541 							if commune == "PAMA" 
-	replace target_vaccination_rr1_2018_che		= target_vaccination_rr1_2018   if commune == "PAMA" 
+	replace target_vaccination_rr1_2018_chec		= target_vaccination_rr1_2018   if commune == "PAMA" 
 
 	replace target_vaccination_dtchephib3_20 	= 2210 								if commune == "KOMPIENGA" 
 	replace target_vaccination_vaa_2018 		= 759 								if commune == "KOMPIENGA" 

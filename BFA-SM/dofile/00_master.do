@@ -7,6 +7,8 @@
 clear
 version 13
 set more off
+set varabbrev off
+
 
 /* =================================================== 
    ================== set globals ==================== 
