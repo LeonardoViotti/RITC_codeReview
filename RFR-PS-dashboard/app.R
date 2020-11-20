@@ -21,14 +21,14 @@ library(here)
 options(shiny.sanitize.errors = F)
 
 # Set app path
-GoR_APP <- file.path("C:/Users/wb519128/GitHub/Rwanda-Roads/Analysis/RFR/Shiny Dashboard - MINAGRI")
-setwd(GoR_APP)
-
+here::set_here()
+print(getwd())
+here::dr_here()
 
 #------------------------------------------------------------------------------#
 #### Run app ####
 #source("ui.R")
 source("globals.R")
 
-runApp(appDir = GoR_APP)
+runApp()
 
