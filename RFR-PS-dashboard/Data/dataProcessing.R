@@ -46,6 +46,7 @@ library(readstata13)
 library(stringr)
 library(gridExtra)
 library(zoo)
+library(data.table)              # Added data table since you are using fread
 
 
 #------------------------------------------------------------------------------#
@@ -53,7 +54,7 @@ library(zoo)
 # ps		<- read.dta13(file.path(PRICE_SV, "Price_survey_preprocess.dta"), 
 #                   convert.factors = T)
 
-ps		<- fread(file.path(PS_PHONE_PANEL, "tidy_panel.csv"),
+ps		<- fread("Data/PS-data/tidy_panel.csv",
              stringsAsFactors = F)
 
 
@@ -61,14 +62,13 @@ ps		<- fread(file.path(PS_PHONE_PANEL, "tidy_panel.csv"),
 #ps <- ps %>% subset(year_month != max(ps$year_month))
 
 # Product list
-prod_list <- read.csv(file.path(PRICE_SV, "product_list.csv"), 
+prod_list <- read.csv("Data/PS-data/product_list.csv", 
                       header = T,
                       stringsAsFactors = F)
 prod_list <- prod_list[prod_list$type != "input",] #remove ag inptus
 
 # Market sample list
-market_sample <- fread(file.path(SAMPLE, 
-                                 "Market Sample/Sample_Markets.csv"),
+market_sample <- fread("Data/PS-data/Sample_Markets.csv",
                        stringsAsFactors = F)
 
 
@@ -368,35 +368,30 @@ time.taken
 
 if (EXPORT_data){
   
-  if(!dir.exists(file.path(GoR_APP, "Data"))){
-    dir.create(file.path(GoR_APP, "Data"))
+  if(!dir.exists("Data/Final")){
+    dir.create("Data/Final")
   }
   
   # PS per month
   
-  saveRDS(psLong_month,
-          file.path(GoR_APP, "Data/psLong_month.rds"))
-  saveRDS(psLong_year,
-          file.path(GoR_APP, "Data/psLong_year.rds"))
-  saveRDS(psLong_season,
-          file.path(GoR_APP, "Data/psLong_season.rds"))
+  saveRDS(psLong_month, "Data/Final/psLong_month.rds")
   
-  saveRDS(psLong_month_province,
-          file.path(GoR_APP, "Data/psLong_month_province.rds"))
-  saveRDS(psLong_year_province,
-          file.path(GoR_APP, "Data/psLong_year_province.rds"))
-  saveRDS(psLong_season_province,
-          file.path(GoR_APP, "Data/psLong_season_province.rds"))
+  saveRDS(psLong_year, "Data/Final/psLong_year.rds")
   
+  saveRDS(psLong_season, "Data/Final/psLong_season.rds")
+  
+  saveRDS(psLong_month_province, "Data/Final/psLong_month_province.rds")
+  
+  saveRDS(psLong_year_province, "Data/Final/psLong_year_province.rds")
+  
+  saveRDS(psLong_season_province, "Data/Final/psLong_season_province.rds")
   
   # Product list
-  write.table(prod_list, 
-              file.path(GoR_APP, "Data/prod_list.csv"),
+  write.table(prod_list, "Data/Final/prod_list.csv",
               sep = ",",
               row.names = F)
   
-  write.table(product_desc, 
-              file.path(GoR_APP, "Data/prod_desc.csv"),
+  write.table(product_desc, "Data/Final/prod_desc.csv",
               sep = ",",
               row.names = F)
 }

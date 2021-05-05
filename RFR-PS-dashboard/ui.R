@@ -8,8 +8,6 @@
 
 source("globals.R")
 
-
-
 #------------------------------------------------------------------------------#  
 #### UI ####
 navbarPage(
@@ -64,6 +62,19 @@ navbarPage(
                          multiple = FALSE,
                          width = NULL, 
                          size = NULL),
+          selectizeInput("geo_agg", "Select level of geographic aggregation:", 
+                         choices = c("Country", "Province"), 
+                         selected = "Country", 
+                         multiple = FALSE,
+                         width = NULL, 
+                         size = NULL), 
+          conditionalPanel("input['geo_agg'] == 'Province'",
+            checkboxGroupInput("province",
+                               label = "Select Province",
+                               choices = unique(psLong_month_province$province),
+                               selected = unique(psLong_month_province$province)[1])
+
+          ),
           selectizeInput("product", "Select products:", 
                          choices = prod_list$product, 
                          selected = "Tomato", 
@@ -71,35 +82,9 @@ navbarPage(
                          width = NULL, 
                          size = NULL),
           conditionalPanel(
-            condition = "input.province.length < 2 && input.product_brand.length < 2",
+            condition = "input['geo_agg'] == 'Country'",
             checkboxInput("multiProd", label = "Select multiple products", value = FALSE)
-          ),
-          # conditionalPanel(
-          #   condition = "input.product == 'Milk' && !input.multiProd",
-          #   checkboxInput("brandCheck", label = "Product type or brand", value = FALSE),
-          # # ),
-          # # conditionalPanel(
-          # #   condition = "input.brandCheck && input.product == 'Milk' ",
-          #   checkboxGroupInput("product_brand",
-          #                      label = "Select type or brand",
-          #                      choices = list(),
-          #                      selected = NULL) ,
-          # ),
-          selectizeInput("geo_agg", "Select level of geographic aggregation:", 
-                         choices = c("Country", "Province"), 
-                         selected = "Country", 
-                         multiple = FALSE,
-                         width = NULL, 
-                         size = NULL), 
-          conditionalPanel('input.geo_agg === "Province" ',
-          # conditionalPanel("input.product >= 50",
-          
-            checkboxGroupInput("province",
-                               label = "Select Province",
-                               choices = unique(psLong_month_province$province),
-                               selected = unique(psLong_month_province$province)[1])
-
-          ),
+          ),          
           selectizeInput("time", "Select level of time aggregation:",
                          choices = c("Month", "Season", "Year"),
                          selected = NULL,

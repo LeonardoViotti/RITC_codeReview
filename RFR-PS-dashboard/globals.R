@@ -29,16 +29,16 @@ library(DT)
 
 
 #### Prices per month
-psLong_month <- readRDS("Data/psLong_month.rds")
-psLong_month_province <- readRDS("Data/psLong_month_province.rds")
+psLong_month <- readRDS("Data/Final/psLong_month.rds")
+psLong_month_province <- readRDS("Data/Final/psLong_month_province.rds")
 
-psLong_year <- readRDS("Data/psLong_year.rds")
+psLong_year <- readRDS("Data/Final/psLong_year.rds")
 psLong_year$Time <- as.character(psLong_year$Time)
-psLong_year_province <- readRDS("Data/psLong_year_province.rds")
+psLong_year_province <- readRDS("Data/Final/psLong_year_province.rds")
 psLong_year_province$Time <- as.character(psLong_year_province$Time)
 
-psLong_season <- readRDS("Data/psLong_season.rds")
-psLong_season_province <- readRDS("Data/psLong_season_province.rds")
+psLong_season <- readRDS("Data/Final/psLong_season.rds")
+psLong_season_province <- readRDS("Data/Final/psLong_season_province.rds")
 
 # Product type dfs
 # psTdLong_month <- readRDS("Data/psTdLong_month.rds")
@@ -52,8 +52,8 @@ psLong_season_province <- readRDS("Data/psLong_season_province.rds")
 # psTdLong_season_province <- readRDS("Data/psTdLong_season_province.rds")
 
 #### Product List 
-prod_list <- read.csv("Data/prod_list.csv", header = T)
-prod_desc <- read.csv("Data/prod_desc.csv", header = T)
+prod_list <- read.csv("Data/Final/prod_list.csv", header = T)
+prod_desc <- read.csv("Data/Final/prod_desc.csv", header = T)
 
 
 #------------------------------------------------------------------------------#
@@ -155,9 +155,6 @@ PlotlyGraph_function_p <-
         yaxis = list(title = ylegend)
       )
   }
-
-
-
 
 
 #------------------------------------------------------------------------------#
